@@ -1,6 +1,6 @@
 {
-  "name": "he-tree-vue",
-  "version": "2.0.4",
+  "name": "@adityapurwa/he-tree-vue",
+  "version": "2.0.5",
   "description": "A draggable sortable nested vue tree component.",
   "main": "dist/he-tree-vue.cjs.js",
   "module": "dist/he-tree-vue.esm.js",
@@ -9,6 +9,9 @@
     "dist",
     "types"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "unpkg": "dist/he-tree-vue.js",
   "author": "phphe <phphe@outlook.com> (https://github.com/phphe)",
   "contributors": [

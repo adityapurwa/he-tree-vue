@@ -1,5 +1,5 @@
 import * as hp from 'helper-js'
-import draggableHelper from 'draggable-helper'
+import draggableHelper from '@adityapurwa/draggable-helper'
 import doDraggableDecision from './draggable-decision-part.js'
 
 // in follow code, options belongs to makeTreeDraggable, opt belongs to draggableHelper
