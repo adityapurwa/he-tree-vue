@@ -1,24 +1,132 @@
-/*!
- * he-tree-vue v2.0.3
- * (c) phphe <phphe@outlook.com> (https://github.com/phphe)
- * Homepage: https://he-tree-vue.phphe.com
- * Released under the MIT License.
- */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var _toConsumableArray = _interopDefault(require('@babel/runtime/helpers/toConsumableArray'));
-var _defineProperty = _interopDefault(require('@babel/runtime/helpers/defineProperty'));
+require('core-js/modules/es.array.concat');
+require('core-js/modules/es.array.join');
+require('core-js/modules/es.array.map');
+require('core-js/modules/es.number.constructor');
+require('core-js/modules/es.parse-int');
+require('core-js/modules/es.regexp.exec');
+require('core-js/modules/es.string.split');
+require('core-js/modules/es.symbol');
+require('core-js/modules/es.array.filter');
+require('core-js/modules/es.array.for-each');
+require('core-js/modules/es.object.define-properties');
+require('core-js/modules/es.object.define-property');
+require('core-js/modules/es.object.get-own-property-descriptor');
+require('core-js/modules/es.object.get-own-property-descriptors');
+require('core-js/modules/es.object.keys');
+require('core-js/modules/web.dom-collections.for-each');
+require('core-js/modules/es.array.is-array');
+require('core-js/modules/es.symbol.description');
+require('core-js/modules/es.symbol.iterator');
+require('core-js/modules/es.array.from');
+require('core-js/modules/es.object.to-string');
+require('core-js/modules/es.string.iterator');
+require('core-js/modules/web.dom-collections.iterator');
+require('core-js/modules/es.array.slice');
+require('core-js/modules/es.date.to-string');
+require('core-js/modules/es.function.name');
+require('core-js/modules/es.regexp.to-string');
 var hp = require('helper-js');
 var vf = require('vue-functions');
-var __vue_normalize__ = _interopDefault(require('vue-runtime-helpers/dist/normalize-component.js'));
-var Vue = _interopDefault(require('vue'));
-var _regeneratorRuntime = _interopDefault(require('@babel/runtime/regenerator'));
-var _asyncToGenerator = _interopDefault(require('@babel/runtime/helpers/asyncToGenerator'));
-var draggableHelper = _interopDefault(require('draggable-helper'));
+var Vue = require('vue');
+require('core-js/modules/es.array.every');
+require('core-js/modules/es.array.reverse');
+require('core-js/modules/es.array.splice');
+require('core-js/modules/web.timers');
+require('regenerator-runtime/runtime');
+var draggableHelper = require('@adityapurwa/draggable-helper');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var Vue__default = /*#__PURE__*/_interopDefaultLegacy(Vue);
+var draggableHelper__default = /*#__PURE__*/_interopDefaultLegacy(draggableHelper);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
 
 function cloneTreeData(treeData, opt) {
   return new hp.TreeData(treeData).clone(opt);
@@ -39,10 +147,6 @@ function getPureTreeData(treeData) {
   return cloneTreeData(treeData, opt);
 }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
 var template = function template(h) {
   var _this = this;
 
@@ -61,15 +165,15 @@ var template = function template(h) {
 
       var slotDefault = function slotDefault() {
         var original = function original() {
-          if (_this.$scopedSlots.default) {
-            return _this.$scopedSlots.default({
+          if (_this.$scopedSlots["default"]) {
+            return _this.$scopedSlots["default"]({
               node: node,
               index: index,
               path: path,
               tree: _this
             });
-          } else if (_this.$slots.default) {
-            return _this.$slots.default;
+          } else if (_this.$slots["default"]) {
+            return _this.$slots["default"];
           } else {
             return node.text;
           }
@@ -90,7 +194,7 @@ var template = function template(h) {
       var nodebackStyle = indentStyle;
 
       if (node.$nodeBackStyle) {
-        nodebackStyle = _objectSpread(_objectSpread({}, nodebackStyle), node.$nodeBackStyle);
+        nodebackStyle = _objectSpread2(_objectSpread2({}, nodebackStyle), node.$nodeBackStyle);
       }
 
       return h("div", {
@@ -138,13 +242,13 @@ var Tree = {
   props: {
     indent: {
       type: Number,
-      default: 20
+      "default": 20
     },
     rtl: {
       type: Boolean
     },
     rootNode: {
-      default: function _default(is) {
+      "default": function _default(is) {
         return {};
       }
     }
@@ -237,7 +341,7 @@ var Tree = {
   mixPlugins: function mixPlugins(plugins) {
     var MixedTree = {
       name: 'Tree',
-      extends: Tree,
+      "extends": Tree,
       mixins: plugins,
       mixPlugins: this.mixPlugins
     };
@@ -245,41 +349,130 @@ var Tree = {
   }
 };
 
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
+/* server only */
+, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+  if (typeof shadowMode !== 'boolean') {
+    createInjectorSSR = createInjector;
+    createInjector = shadowMode;
+    shadowMode = false;
+  } // Vue.extend constructor export interop.
+
+
+  var options = typeof script === 'function' ? script.options : script; // render functions
+
+  if (template && template.render) {
+    options.render = template.render;
+    options.staticRenderFns = template.staticRenderFns;
+    options._compiled = true; // functional template
+
+    if (isFunctionalTemplate) {
+      options.functional = true;
+    }
+  } // scopedId
+
+
+  if (scopeId) {
+    options._scopeId = scopeId;
+  }
+
+  var hook;
+
+  if (moduleIdentifier) {
+    // server build
+    hook = function hook(context) {
+      // 2.3 injection
+      context = context || // cached call
+      this.$vnode && this.$vnode.ssrContext || // stateful
+      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
+      // 2.2 with runInNewContext: true
+
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__;
+      } // inject component styles
+
+
+      if (style) {
+        style.call(this, createInjectorSSR(context));
+      } // register component module identifier for async chunk inference
+
+
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier);
+      }
+    }; // used by ssr in case component is cached and beforeCreate
+    // never gets called
+
+
+    options._ssrRegister = hook;
+  } else if (style) {
+    hook = shadowMode ? function (context) {
+      style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+    } : function (context) {
+      style.call(this, createInjector(context));
+    };
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // register for functional component in vue file
+      var originalRender = options.render;
+
+      options.render = function renderWithStyleInjection(h, context) {
+        hook.call(context);
+        return originalRender(h, context);
+      };
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate;
+      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    }
+  }
+
+  return script;
+}
+
 /* script */
-var __vue_script__ = Tree;
+const __vue_script__ = Tree;
 /* template */
 
-/* style */
+  /* style */
+  const __vue_inject_styles__ = undefined;
+  /* scoped */
+  const __vue_scope_id__ = undefined;
+  /* module identifier */
+  const __vue_module_identifier__ = undefined;
+  /* functional template */
+  const __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
 
-var __vue_inject_styles__ = undefined;
-/* scoped */
+  
+  const __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
 
-var __vue_scope_id__ = undefined;
-/* module identifier */
-
-var __vue_module_identifier__ = undefined;
-/* functional template */
-
-var __vue_is_functional_template__ = undefined;
-/* style inject */
-
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-var __vue_component__ = /*#__PURE__*/__vue_normalize__({}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);
-
-function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 function foldAll(treeData) {
   walkTreeData(treeData, function (childNode) {
-    Vue.set(childNode, '$folded', true);
+    Vue__default['default'].set(childNode, '$folded', true);
   });
 }
 function unfoldAll(treeData) {
   walkTreeData(treeData, function (childNode) {
-    Vue.set(childNode, '$folded', false);
+    Vue__default['default'].set(childNode, '$folded', false);
   });
 }
 var fold = {
@@ -301,7 +494,7 @@ var fold = {
     },
     unfold: function unfold(node, path) {
       var opt = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      opt = _objectSpread$1({
+      opt = _objectSpread2({
         foldOthers: false
       }, opt);
 
@@ -345,11 +538,63 @@ var fold = {
   }
 };
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) {
+  var it;
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
+      var i = 0;
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+      var F = function F() {};
+
+      return {
+        s: F,
+        n: function n() {
+          if (i >= o.length) return {
+            done: true
+          };
+          return {
+            done: false,
+            value: o[i++]
+          };
+        },
+        e: function e(_e) {
+          throw _e;
+        },
+        f: F
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var normalCompletion = true,
+      didErr = false,
+      err;
+  return {
+    s: function s() {
+      it = o[Symbol.iterator]();
+    },
+    n: function n() {
+      var step = it.next();
+      normalCompletion = step.done;
+      return step;
+    },
+    e: function e(_e2) {
+      didErr = true;
+      err = _e2;
+    },
+    f: function f() {
+      try {
+        if (!normalCompletion && it["return"] != null) it["return"]();
+      } finally {
+        if (didErr) throw err;
+      }
+    }
+  };
+}
+
 var check = {
   props: {},
   methods: {
@@ -398,6 +643,42 @@ var check = {
     }
   }
 };
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
 
 function doDraggableDecision (_ref) {
   var conditions = _ref.conditions,
@@ -552,23 +833,13 @@ function doDraggableDecision (_ref) {
 
 }
 
-function _createForOfIteratorHelper$1(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$1(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray$1(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$1(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen); }
-
-function _arrayLikeToArray$1(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
 function makeTreeDraggable(treeEl) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  options = _objectSpread$2(_objectSpread$2({}, options), {}, {
+  options = _objectSpread2(_objectSpread2({}, options), {}, {
     treeEl: treeEl
   });
 
-  var _draggableHelper = draggableHelper(treeEl, {
+  var _draggableHelper = draggableHelper__default['default'](treeEl, {
     triggerClassName: options.triggerClass,
     triggerBySelf: options.triggerBySelf,
     draggingClassName: options.draggingClass,
@@ -580,6 +851,7 @@ function makeTreeDraggable(treeEl) {
     rtl: options.rtl,
     preventTextSelection: options.preventTextSelection,
     updateMovedElementStyleManually: true,
+    allowOutOfBounds: options.allowOutOfBounds,
     getMovedOrClonedElement: function getMovedOrClonedElement(directTriggerElement, store) {
       // find closest branch from parents
       var el = hp.findParent(store.triggerElement, function (el) {
@@ -629,10 +901,10 @@ function makeTreeDraggable(treeEl) {
         // 跳过第一次移动
 
         return;
-      } // 
+      } //
 
 
-      store.updateMovedElementStyle(); // 
+      store.updateMovedElementStyle(); //
 
       store.oneMoveStore = {}; // life cycle: one move
 
@@ -667,7 +939,7 @@ function makeTreeDraggable(treeEl) {
       var found;
       var firstElement;
 
-      var _iterator = _createForOfIteratorHelper$1(hp.elementsFromPoint(movingNodeRect.x, movingNodeRect.y)),
+      var _iterator = _createForOfIteratorHelper(hp.elementsFromPoint(movingNodeRect.x, movingNodeRect.y)),
           _step;
 
       try {
@@ -698,7 +970,11 @@ function makeTreeDraggable(treeEl) {
 
       if (!_tree) {
         // out of tree or tree is covered by other elements
-        return;
+        if (!dhOptions.allowOutOfBounds) {
+          return;
+        } else {
+          _tree = store.startTreeEl;
+        }
       } // check if target tree right
 
 
@@ -958,9 +1234,9 @@ function makeTreeDraggable(treeEl) {
         }
 
         var queue = store._doActionQueue;
-        store._doActionQueue = queue.then( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
+        store._doActionQueue = queue.then( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
           var actionRecords, action, r;
-          return _regeneratorRuntime.wrap(function _callee$(_context) {
+          return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
@@ -991,8 +1267,8 @@ function makeTreeDraggable(treeEl) {
 
       var actions = {
         'nothing': function nothing() {
-          return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2() {
-            return _regeneratorRuntime.wrap(function _callee2$(_context2) {
+          return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
               while (1) {
                 switch (_context2.prev = _context2.next) {
                   case 0:
@@ -1005,8 +1281,8 @@ function makeTreeDraggable(treeEl) {
         },
         // do nothing
         'append to root': function appendToRoot() {
-          return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee3() {
-            return _regeneratorRuntime.wrap(function _callee3$(_context3) {
+          return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
                   case 0:
@@ -1024,8 +1300,8 @@ function makeTreeDraggable(treeEl) {
           }))();
         },
         'insert before': function insertBefore() {
-          return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee4() {
-            return _regeneratorRuntime.wrap(function _callee4$(_context4) {
+          return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
                 switch (_context4.prev = _context4.next) {
                   case 0:
@@ -1051,9 +1327,9 @@ function makeTreeDraggable(treeEl) {
         },
         'insert after': function insertAfter() {
           var _arguments = arguments;
-          return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee5() {
+          return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
             var branch, moved, isFirstTriedAction;
-            return _regeneratorRuntime.wrap(function _callee5$(_context5) {
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
               while (1) {
                 switch (_context5.prev = _context5.next) {
                   case 0:
@@ -1092,8 +1368,8 @@ function makeTreeDraggable(treeEl) {
           }))();
         },
         prepend: function prepend() {
-          return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee6() {
-            return _regeneratorRuntime.wrap(function _callee6$(_context6) {
+          return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
               while (1) {
                 switch (_context6.prev = _context6.next) {
                   case 0:
@@ -1137,8 +1413,8 @@ function makeTreeDraggable(treeEl) {
           }))();
         },
         'after above': function afterAbove() {
-          return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee7() {
-            return _regeneratorRuntime.wrap(function _callee7$(_context7) {
+          return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
                 switch (_context7.prev = _context7.next) {
                   case 0:
@@ -1163,9 +1439,9 @@ function makeTreeDraggable(treeEl) {
           }))();
         },
         'append to prev': function appendToPrev() {
-          return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee8() {
+          return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
             var childrenEl;
-            return _regeneratorRuntime.wrap(function _callee8$(_context8) {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
               while (1) {
                 switch (_context8.prev = _context8.next) {
                   case 0:
@@ -1214,9 +1490,9 @@ function makeTreeDraggable(treeEl) {
       // return true if moved
 
       var secondCase = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee9(branchEl) {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(branchEl) {
           var targetEl;
-          return _regeneratorRuntime.wrap(function _callee9$(_context9) {
+          return regeneratorRuntime.wrap(function _callee9$(_context9) {
             while (1) {
               switch (_context9.prev = _context9.next) {
                 case 0:
@@ -1251,8 +1527,8 @@ function makeTreeDraggable(treeEl) {
 
 
       var thirdCase = /*#__PURE__*/function () {
-        var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee10(branchEl) {
-          return _regeneratorRuntime.wrap(function _callee10$(_context10) {
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(branchEl) {
+          return regeneratorRuntime.wrap(function _callee10$(_context10) {
             while (1) {
               switch (_context10.prev = _context10.next) {
                 case 0:
@@ -1278,9 +1554,9 @@ function makeTreeDraggable(treeEl) {
       }();
 
       var unfoldAndGetChildrenEl = /*#__PURE__*/function () {
-        var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee11(branch) {
+        var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11(branch) {
           var childrenEl;
-          return _regeneratorRuntime.wrap(function _callee11$(_context11) {
+          return regeneratorRuntime.wrap(function _callee11$(_context11) {
             while (1) {
               switch (_context11.prev = _context11.next) {
                 case 0:
@@ -1311,16 +1587,16 @@ function makeTreeDraggable(treeEl) {
       }();
 
       var tryUnfoldAndPrepend = /*#__PURE__*/function () {
-        var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee13(branchEl) {
+        var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee13(branchEl) {
           var func, oneMoveStore;
-          return _regeneratorRuntime.wrap(function _callee13$(_context13) {
+          return regeneratorRuntime.wrap(function _callee13$(_context13) {
             while (1) {
               switch (_context13.prev = _context13.next) {
                 case 0:
                   func = /*#__PURE__*/function () {
-                    var _ref6 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee12() {
+                    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee12() {
                       var childrenEl;
-                      return _regeneratorRuntime.wrap(function _callee12$(_context12) {
+                      return regeneratorRuntime.wrap(function _callee12$(_context12) {
                         while (1) {
                           switch (_context12.prev = _context12.next) {
                             case 0:
@@ -1390,9 +1666,9 @@ function makeTreeDraggable(treeEl) {
       });
     },
     beforeDrop: function () {
-      var _beforeDrop = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee14(store, dhOptions) {
+      var _beforeDrop = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee14(store, dhOptions) {
         var endEvent, movingEl, placeholder, tempChildren, movedCount, targetTreeEl, startTreeEl, maskTree, maskTree2, pathChanged, isPathChanged;
-        return _regeneratorRuntime.wrap(function _callee14$(_context14) {
+        return regeneratorRuntime.wrap(function _callee14$(_context14) {
           while (1) {
             switch (_context14.prev = _context14.next) {
               case 0:
@@ -1445,7 +1721,7 @@ function makeTreeDraggable(treeEl) {
                   hp.removeEl(tempChildren);
                 }
 
-                store.updateMovedElementStyle(); // 
+                store.updateMovedElementStyle(); //
 
                 _context14.next = 10;
                 return options.afterDrop(store, dhOptions);
@@ -1515,7 +1791,7 @@ function makeTreeDraggable(treeEl) {
       edgeScrollTriggerMargin: options.edgeScrollTriggerMargin,
       edgeScrollSpeed: options.edgeScrollSpeed,
       edgeScrollTriggerMode: options.edgeScrollTriggerMode,
-      // 
+      //
       rtl: options.rtl,
       preventTextSelection: options.preventTextSelection
     });
@@ -1526,28 +1802,23 @@ function isElementHidden(el) {
   return el.offsetWidth === 0 && el.offsetHeight === 0;
 }
 
-function _createForOfIteratorHelper$2(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$2(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray$2(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$2(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen); }
-
-function _arrayLikeToArray$2(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 var treesStore = {};
 var script = {
   props: {
     triggerClass: {
       type: [String, Array],
-      default: 'tree-node'
+      "default": 'tree-node'
     },
     triggerBySelf: {
       type: Boolean
     },
     draggable: {
       type: [Boolean, Function],
-      default: true
+      "default": true
     },
     droppable: {
       type: [Boolean, Function],
-      default: true
+      "default": true
     },
     eachDraggable: {
       type: [Function]
@@ -1565,15 +1836,15 @@ var script = {
     },
     unfoldWhenDragover: {
       type: Boolean,
-      default: true
+      "default": true
     },
     unfoldWhenDragoverDelay: {
       type: Number,
-      default: 30
+      "default": 30
     },
     draggingNodePositionMode: {
       type: String,
-      default: 'top_left_corner'
+      "default": 'top_left_corner'
     },
     // top_left_corner, mouse
     edgeScroll: {
@@ -1581,19 +1852,31 @@ var script = {
     },
     edgeScrollTriggerMargin: {
       type: Number,
-      default: 50
+      "default": 50
     },
     edgeScrollSpeed: {
       type: Number,
-      default: 0.35
+      "default": 0.35
     },
     edgeScrollTriggerMode: {
       type: String,
-      default: 'top_left_corner'
+      "default": 'top_left_corner'
     },
     preventTextSelection: {
       type: Boolean,
-      default: true
+      "default": true
+    },
+    cloneWhenDrag: {
+      type: Boolean,
+      "default": false
+    },
+    cloneWhenDrop: {
+      type: Boolean,
+      "default": false
+    },
+    allowOutOfBounds: {
+      type: Boolean,
+      "default": false
     }
   },
   // components: {},
@@ -1621,7 +1904,7 @@ var script = {
       var allNodes = this.getAllNodesByPath(path);
       allNodes.unshift(this.rootNode);
 
-      var _iterator = _createForOfIteratorHelper$2(hp.iterateAll(allNodes, {
+      var _iterator = _createForOfIteratorHelper(hp.iterateAll(allNodes, {
         reverse: true
       })),
           _step;
@@ -1655,7 +1938,7 @@ var script = {
       allNodes.unshift(this.rootNode);
       var droppableFinal, resolved;
 
-      var _iterator2 = _createForOfIteratorHelper$2(hp.iterateAll(allNodes, {
+      var _iterator2 = _createForOfIteratorHelper(hp.iterateAll(allNodes, {
         reverse: true
       })),
           _step2;
@@ -1731,7 +2014,7 @@ var script = {
       });
       var index = 0;
 
-      var _iterator3 = _createForOfIteratorHelper$2(hp.iterateAll(branchEl.parentElement.children)),
+      var _iterator3 = _createForOfIteratorHelper(hp.iterateAll(branchEl.parentElement.children)),
           _step3;
 
       try {
@@ -1769,12 +2052,14 @@ var script = {
       unfoldWhenDragoverDelay: this.unfoldWhenDragoverDelay,
       draggingNodePositionMode: this.draggingNodePositionMode,
       cloneWhenDrag: this.cloneWhenDrag,
+      cloneWhenDrop: this.cloneWhenDrop,
       edgeScroll: this.edgeScroll,
       edgeScrollTriggerMargin: this.edgeScrollTriggerMargin,
       edgeScrollSpeed: this.edgeScrollSpeed,
       edgeScrollTriggerMode: this.edgeScrollTriggerMode,
       rtl: this.rtl,
       preventTextSelection: this.preventTextSelection,
+      allowOutOfBounds: this.allowOutOfBounds,
       treeClass: 'he-tree',
       rootClass: 'tree-root',
       childrenClass: 'tree-children',
@@ -1825,7 +2110,7 @@ var script = {
         var findPath = hp.arrayWithoutEnd(path, 1);
         var cur = path;
 
-        var _iterator4 = _createForOfIteratorHelper$2(tree.iteratePath(findPath, {
+        var _iterator4 = _createForOfIteratorHelper(tree.iteratePath(findPath, {
           reverse: true
         })),
             _step4;
@@ -1934,7 +2219,7 @@ var script = {
               targetPath = store.targetPath,
               dragNode = store.dragNode;
 
-          if (_this.cloneWhenDrag !== true) {
+          if (_this.cloneWhenDrop !== true) {
             // remove from start position
             var startParentPath = hp.arrayWithoutEnd(startPath, 1);
             var startParent = startTree.getNodeByPath(startParentPath);
@@ -2020,28 +2305,37 @@ var script = {
 };
 
 /* script */
-var __vue_script__$1 = script;
+const __vue_script__$1 = script;
 /* template */
 
-/* style */
+  /* style */
+  const __vue_inject_styles__$1 = undefined;
+  /* scoped */
+  const __vue_scope_id__$1 = undefined;
+  /* module identifier */
+  const __vue_module_identifier__$1 = undefined;
+  /* functional template */
+  const __vue_is_functional_template__$1 = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
 
-var __vue_inject_styles__$1 = undefined;
-/* scoped */
-
-var __vue_scope_id__$1 = undefined;
-/* module identifier */
-
-var __vue_module_identifier__$1 = undefined;
-/* functional template */
-
-var __vue_is_functional_template__$1 = undefined;
-/* style inject */
-
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-var __vue_component__$1 = /*#__PURE__*/__vue_normalize__({}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);
+  
+  const __vue_component__$1 = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__$1,
+    __vue_script__$1,
+    __vue_scope_id__$1,
+    __vue_is_functional_template__$1,
+    __vue_module_identifier__$1,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
 
 exports.Check = check;
 exports.Draggable = __vue_component__$1;

@@ -22,7 +22,7 @@ const getBabelConfig = () => ({
         ['@vue/cli-plugin-babel/preset', {
                 useBuiltIns: false,
                 polyfills: [],
-                targets: 'defaults',
+                targets: 'browsers',
             }],
     ],
     plugins: [
