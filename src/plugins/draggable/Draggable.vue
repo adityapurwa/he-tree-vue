@@ -23,6 +23,9 @@ export default {
     edgeScrollSpeed: {type: Number, default: 0.35},
     edgeScrollTriggerMode: {type: String, default: 'top_left_corner'},
     preventTextSelection: {type: Boolean, default: true},
+    cloneWhenDrag: { type: Boolean, default: false },
+    cloneWhenDrop: { type: Boolean, default: false},
+    allowOutOfBounds: { type: Boolean, default: false }
   },
   // components: {},
   data() {
@@ -131,12 +134,14 @@ export default {
       unfoldWhenDragoverDelay: this.unfoldWhenDragoverDelay,
       draggingNodePositionMode: this.draggingNodePositionMode,
       cloneWhenDrag: this.cloneWhenDrag,
+      cloneWhenDrop: this.cloneWhenDrop,
       edgeScroll: this.edgeScroll,
       edgeScrollTriggerMargin: this.edgeScrollTriggerMargin,
       edgeScrollSpeed: this.edgeScrollSpeed,
       edgeScrollTriggerMode: this.edgeScrollTriggerMode,
       rtl: this.rtl,
       preventTextSelection: this.preventTextSelection,
+      allowOutOfBounds: this.allowOutOfBounds,
       treeClass: 'he-tree',
       rootClass: 'tree-root',
       childrenClass: 'tree-children',
@@ -247,7 +252,7 @@ export default {
       afterDrop: (store, t) => {
         if (store.pathChanged) {
           const {startTree, targetTree, startPath, targetPath, dragNode} = store
-          if (this.cloneWhenDrag !== true) {
+          if (this.cloneWhenDrop !== true) {
             // remove from start position
             const startParentPath = hp.arrayWithoutEnd(startPath, 1)
             const startParent = startTree.getNodeByPath(startParentPath)
@@ -309,16 +314,16 @@ export default {
     }
     const _makeTreeDraggable_obj = this._makeTreeDraggable_obj = makeTreeDraggable(this.$el, options);
     // watch props and update options
-    ['indent', 
-    'triggerClass', 
-    'triggerBySelf', 
-    'unfoldWhenDragover', 
-    'unfoldWhenDragoverDelay', 
-    'draggingNodePositionMode', 
-    'cloneWhenDrag', 
-    'edgeScroll', 'edgeScrollTriggerMargin', 'edgeScrollSpeed', 'edgeScrollTriggerMode', 
+    ['indent',
+    'triggerClass',
+    'triggerBySelf',
+    'unfoldWhenDragover',
+    'unfoldWhenDragoverDelay',
+    'draggingNodePositionMode',
+    'cloneWhenDrag',
+    'edgeScroll', 'edgeScrollTriggerMargin', 'edgeScrollSpeed', 'edgeScrollTriggerMode',
     'rtl',
-    'preventTextSelection', 
+    'preventTextSelection',
     ].forEach(name => {
       this.$watch(name, (value) => {
         _makeTreeDraggable_obj.options[name] = value

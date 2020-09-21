@@ -30,6 +30,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
     // edgeScrollTriggerMode: 'top_left_corner',
     // rtl: false
     // preventTextSelection: boolean
+    // allowOutOfBounds: false
     ...options,
     treeEl,
   }
@@ -45,6 +46,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
     rtl: options.rtl,
     preventTextSelection: options.preventTextSelection,
     updateMovedElementStyleManually: true,
+    allowOutOfBounds: options.allowOutOfBounds,
     getMovedOrClonedElement: (directTriggerElement, store) => {
       // find closest branch from parents
       const el = hp.findParent(store.triggerElement, el => hp.hasClass(el, options.branchClass), {withSelf: true})
@@ -96,9 +98,9 @@ export default function makeTreeDraggable(treeEl, options = {}) {
         // 跳过第一次移动
         return
       }
-      // 
+      //
       store.updateMovedElementStyle()
-      // 
+      //
       store.oneMoveStore = {} // life cycle: one move
       const movingEl = store.movedElement // branch
       // find closest branch and hovering tree
@@ -112,7 +114,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
         // use mouse position as dragging node position
         const {moveEvent} = store
         movingNodeOf = {x: moveEvent.pageX, y: moveEvent.pageY}
-        movingNodeRect = {x: moveEvent.clientX, y: moveEvent.clientY} 
+        movingNodeRect = {x: moveEvent.clientX, y: moveEvent.clientY}
       } else if (options.rtl) {
         movingNodeOf.x += movingNode.offsetWidth
         movingNodeRect.x += movingNode.offsetWidth
@@ -136,7 +138,11 @@ export default function makeTreeDraggable(treeEl, options = {}) {
       tree = found
       if (!tree) {
         // out of tree or tree is covered by other elements
-        return
+        if(!dhOptions.allowOutOfBounds) {
+          return
+        }else{
+          tree = store.startTreeEl
+        }
       }
       // check if target tree right
       if (options.filterTargetTree(tree, store, dhOptions) === false) {
@@ -265,6 +271,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
           return cur
         },
       }
+
       // conditions ========================================
       // life cycle: one move
       const conditions = {
@@ -285,6 +292,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
           }
         },
       }
+
       // fix for rtl
       if (options.rtl) {
         Object.assign(conditions, {
@@ -471,7 +479,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
         hp.removeEl(tempChildren)
       }
       store.updateMovedElementStyle()
-      // 
+      //
       await options.afterDrop(store, dhOptions)
       // remove mask tree
       if (maskTree) {
@@ -512,7 +520,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
       edgeScrollTriggerMargin: options.edgeScrollTriggerMargin,
       edgeScrollSpeed: options.edgeScrollSpeed,
       edgeScrollTriggerMode: options.edgeScrollTriggerMode,
-      // 
+      //
       rtl: options.rtl,
       preventTextSelection: options.preventTextSelection,
     })

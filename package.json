@@ -11,13 +11,19 @@
   ],
   "unpkg": "dist/he-tree-vue.js",
   "author": "phphe <phphe@outlook.com> (https://github.com/phphe)",
+  "contributors": [
+    {
+      "name": "Aditya Purwa",
+      "url": "https://github.com/adityapurwa"
+    }
+  ],
   "homepage": "https://he-tree-vue.phphe.com",
   "bugs": {
     "url": "https://github.com/phphe/he-tree-vue/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/phphe/he-tree-vue.git"
+    "url": "https://github.com/adityapurwa/he-tree-vue.git"
   },
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -28,8 +34,8 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "@adityapurwa/draggable-helper": "^5.0.4",
     "@babel/runtime": "^7.7.7",
-    "draggable-helper": "^5.0.3",
     "helper-js": "^2.0.1",
     "vue-functions": "^2.0.6",
     "vue-runtime-helpers": "^1.1.2"

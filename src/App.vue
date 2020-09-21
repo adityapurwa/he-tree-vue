@@ -1,16 +1,7 @@
 <!-- this is an example -->
 <template lang="pug">
 #app
-  h3 These are just some simple examples. For show and test.
-  .flex
-    BaseTree.mr
-    NodeBackTree.mr
-    ThirdCase.mr
-    DragTransition.mr
-    InScrollBox.mr
-    CustomTrigger.mr
-    RTLTree.mr
-    //- DraggableProTree.mr
+    FourthCase.mr
 </template>
 
 <script>
@@ -21,9 +12,11 @@ import DragTransition from '@/examples/DragTransition.vue'
 import InScrollBox from '@/examples/InScrollBox.vue'
 import CustomTrigger from '@/examples/CustomTrigger.vue'
 import RTLTree from '@/examples/RTLTree.vue'
+import FourthCase from "@/examples/FourthCase";
 
 export default {
-  components: {BaseTree, NodeBackTree, ThirdCase, DragTransition, InScrollBox, CustomTrigger, RTLTree,
+  components: {
+    FourthCase, BaseTree, NodeBackTree, ThirdCase, DragTransition, InScrollBox, CustomTrigger, RTLTree,
     // DraggableProTree: () => import('@/examples/DraggablePro'),
   },
   // data() {
@@ -39,7 +32,6 @@ export default {
 
 <style>
 #app{
-  width: 3000px;
   overflow: auto;
 }
 .flex{
