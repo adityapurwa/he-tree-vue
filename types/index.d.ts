@@ -1,6 +1,6 @@
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 import {VNode} from 'vue'
-import * as dh from "draggable-helper";
+import * as dh from "@adityapurwa/draggable-helper";
 
 interface Node {
   [propName: string]: any
