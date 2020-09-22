@@ -2,7 +2,7 @@
 <template lang="pug">
 div.fourth-case
   h2 Fourth Case
-  Tree(:value="treeData" ref="tree" :rootNode="{$droppable: true}" :cloneWhenDrag="true" :allowOutOfBounds="true")
+  Tree(:value="treeData" ref="tree" :rootNode="{$droppable: true}" :cloneWhenDrag="true" :allowOutOfBounds="false")
     div(slot-scope="{node, index, path, tree}")
       b(v-if="node.children && node.children.length > 0" @click="tree.toggleFold(node, path)") {{node.$folded ? '+' : '-'}}&nbsp;
       input(type="checkbox" :checked="node.$checked" @change="tree.toggleCheck(node, path)")

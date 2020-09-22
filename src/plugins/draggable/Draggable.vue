@@ -336,14 +336,4 @@ export default {
 </script>
 
 <style>
-.he-tree .tree-placeholder{
-}
-.he-tree .tree-placeholder-node{
-  background: #ddf2f9;
-  border: 1px dashed #00d9ff;
-  height: 20px;
-}
-.he-tree .dragging .tree-node-back:hover{
-  background-color: inherit;
-}
 </style>

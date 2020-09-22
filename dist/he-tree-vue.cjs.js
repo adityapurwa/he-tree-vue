@@ -2,47 +2,48 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('core-js/modules/es.array.concat');
-require('core-js/modules/es.array.join');
-require('core-js/modules/es.array.map');
-require('core-js/modules/es.number.constructor');
-require('core-js/modules/es.parse-int');
-require('core-js/modules/es.regexp.exec');
-require('core-js/modules/es.string.split');
-require('core-js/modules/es.symbol');
-require('core-js/modules/es.array.filter');
-require('core-js/modules/es.array.for-each');
-require('core-js/modules/es.object.define-properties');
-require('core-js/modules/es.object.define-property');
-require('core-js/modules/es.object.get-own-property-descriptor');
-require('core-js/modules/es.object.get-own-property-descriptors');
-require('core-js/modules/es.object.keys');
-require('core-js/modules/web.dom-collections.for-each');
-require('core-js/modules/es.array.is-array');
-require('core-js/modules/es.symbol.description');
-require('core-js/modules/es.symbol.iterator');
-require('core-js/modules/es.array.from');
-require('core-js/modules/es.object.to-string');
-require('core-js/modules/es.string.iterator');
-require('core-js/modules/web.dom-collections.iterator');
-require('core-js/modules/es.array.slice');
-require('core-js/modules/es.date.to-string');
-require('core-js/modules/es.function.name');
-require('core-js/modules/es.regexp.to-string');
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
 var hp = require('helper-js');
 var vf = require('vue-functions');
-var Vue = require('vue');
-require('core-js/modules/es.array.every');
-require('core-js/modules/es.array.reverse');
-require('core-js/modules/es.array.splice');
-require('core-js/modules/web.timers');
-require('regenerator-runtime/runtime');
-var draggableHelper = require('@adityapurwa/draggable-helper');
+var Vue = _interopDefault(require('vue'));
+var draggableHelper = _interopDefault(require('@adityapurwa/draggable-helper'));
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
 
-var Vue__default = /*#__PURE__*/_interopDefaultLegacy(Vue);
-var draggableHelper__default = /*#__PURE__*/_interopDefaultLegacy(draggableHelper);
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -93,14 +94,8 @@ function _objectSpread2(target) {
   return target;
 }
 
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
 }
 
 function _arrayWithoutHoles(arr) {
@@ -120,12 +115,73 @@ function _unsupportedIterableToArray(o, minLen) {
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
 
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
 function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+function _createForOfIteratorHelper(o, allowArrayLike) {
+  var it;
+
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
+      var i = 0;
+
+      var F = function () {};
+
+      return {
+        s: F,
+        n: function () {
+          if (i >= o.length) return {
+            done: true
+          };
+          return {
+            done: false,
+            value: o[i++]
+          };
+        },
+        e: function (e) {
+          throw e;
+        },
+        f: F
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var normalCompletion = true,
+      didErr = false,
+      err;
+  return {
+    s: function () {
+      it = o[Symbol.iterator]();
+    },
+    n: function () {
+      var step = it.next();
+      normalCompletion = step.done;
+      return step;
+    },
+    e: function (e) {
+      didErr = true;
+      err = e;
+    },
+    f: function () {
+      try {
+        if (!normalCompletion && it.return != null) it.return();
+      } finally {
+        if (didErr) throw err;
+      }
+    }
+  };
 }
 
 function cloneTreeData(treeData, opt) {
@@ -152,16 +208,16 @@ var template = function template(h) {
 
   // convert undefined to empty str
   var noUndefined = function noUndefined(str) {
-    return str ? str : '';
+    return str ? str : "";
   }; // tree tpl, to render recursively
 
 
   var childrenListTpl = function childrenListTpl(nodes, parent, parentPath) {
-    var indentStyle = _defineProperty({}, !_this.rtl ? 'paddingLeft' : 'paddingRight', parentPath.length * _this.indent + 'px');
+    var indentStyle = _defineProperty({}, !_this.rtl ? "paddingLeft" : "paddingRight", parentPath.length * _this.indent + "px");
 
     var branchTpl = function branchTpl(node, index) {
       var path = [].concat(_toConsumableArray(parentPath), [index]);
-      var transitionComponent = _this.foldingTransition || 'transition';
+      var transitionComponent = _this.foldingTransition || "transition";
 
       var slotDefault = function slotDefault() {
         var original = function original() {
@@ -198,33 +254,33 @@ var template = function template(h) {
       }
 
       return h("div", {
-        "class": "tree-branch ".concat(noUndefined(node.$branchClass), " ").concat(noUndefined(node.$hidden && 'he-tree--hidden')),
-        "style": node.$branchStyle || {},
-        "attrs": {
-          "data-tree-node-path": path.join(',')
+        "class": "tree-branch ".concat(noUndefined(node.$branchClass), " ").concat(noUndefined(node.$hidden && "he-tree--hidden")),
+        style: node.$branchStyle || {},
+        attrs: {
+          "data-tree-node-path": path.join(",")
         }
       }, [h("div", {
         "class": "tree-node-back ".concat(noUndefined(node.$nodeBackClass)),
-        "style": nodebackStyle || {}
+        style: nodebackStyle || {}
       }, [h("div", {
         "class": "tree-node ".concat(noUndefined(node.$nodeClass)),
-        "style": node.$nodeStyle || {}
-      }, [slotDefault()])]), (node.children && node.children.length) > 0 && h(transitionComponent, {
-        "attrs": {
-          "name": _this.$props.foldingTransitionName
+        style: node.$nodeStyle || {}
+      }, [slotDefault()])]), (node.children && node.children.length) > 0 && h("transition", {
+        attrs: {
+          name: _this.$props.foldingTransitionName
         }
       }, [!node.$folded && childrenListTpl(node.children, node, path)])]);
     };
 
     return h("div", {
-      "class": "tree-children ".concat(noUndefined(parent === _this.rootNode && 'tree-root'), " ").concat(noUndefined(parent.$childrenClass)),
-      "style": parent.$childrenStyle || {}
+      "class": "tree-children ".concat(noUndefined(parent === _this.rootNode && "tree-root"), " ").concat(noUndefined(parent.$childrenClass)),
+      style: parent.$childrenStyle || {}
     }, [nodes.map(branchTpl)]);
   };
 
   return h("div", {
-    "class": "he-tree ".concat(this.treeClass, " ").concat(noUndefined(this.rtl && 'he-tree--rtl')),
-    "attrs": {
+    "class": "he-tree ".concat(this.treeClass, " ").concat(noUndefined(this.rtl && "he-tree--rtl")),
+    attrs: {
       "data-tree-id": this.treeId
     }
   }, [this.blockHeader && this.blockHeader(), childrenListTpl(this.rootNode.children, this.rootNode, []), this.blockFooter && this.blockFooter()]);
@@ -235,7 +291,7 @@ var Tree = {
   render: template,
   mixins: [vf.updatablePropsEvenUnbound({
     value: {
-      $localName: 'treeData',
+      $localName: "treeData",
       required: true
     }
   }), vf.hookHelper],
@@ -257,7 +313,7 @@ var Tree = {
   data: function data() {
     return {
       trees: trees,
-      treeClass: '',
+      treeClass: "",
       treeId: hp.randString()
     };
   },
@@ -275,7 +331,7 @@ var Tree = {
       return this._TreeDataHelper.iteratePath(path, opt);
     },
     getTreeVmByTreeEl: function getTreeVmByTreeEl(treeEl) {
-      return this.trees[treeEl.getAttribute('data-tree-id')];
+      return this.trees[treeEl.getAttribute("data-tree-id")];
     },
     getAllNodesByPath: function getAllNodesByPath(path) {
       return this._TreeDataHelper.getAllNodes(path);
@@ -284,12 +340,12 @@ var Tree = {
       return this._TreeDataHelper.getNode(path);
     },
     getPathByBranchEl: function getPathByBranchEl(branchEl) {
-      return branchEl.getAttribute('data-tree-node-path').split(',').map(function (v) {
+      return branchEl.getAttribute("data-tree-node-path").split(",").map(function (v) {
         return parseInt(v);
       });
     },
     getBranchElByPath: function getBranchElByPath(path) {
-      return this.$el.querySelector("[data-tree-node-path='".concat(path.join(','), "']"));
+      return this.$el.querySelector("[data-tree-node-path='".concat(path.join(","), "']"));
     },
     getNodeByBranchEl: function getNodeByBranchEl(branchEl) {
       return this.getNodeByPath(this.getPathByBranchEl(branchEl));
@@ -316,13 +372,13 @@ var Tree = {
 
     //
     var updateRootNode = function updateRootNode() {
-      _this2.$set(_this2.rootNode, 'children', _this2.treeData);
+      _this2.$set(_this2.rootNode, "children", _this2.treeData);
     };
 
-    this.$watch('rootNode', updateRootNode, {
+    this.$watch("rootNode", updateRootNode, {
       immediate: true
     });
-    this.$watch('treeData', updateRootNode, {
+    this.$watch("treeData", updateRootNode, {
       immediate: true
     });
   },
@@ -332,7 +388,7 @@ var Tree = {
     //
     this.treeId = hp.randString();
     this.$set(this.trees, this.treeId, this);
-    this.$once('hook:beforeDestroy', function () {
+    this.$once("hook:beforeDestroy", function () {
       _this3.$delete(_this3.trees, _this3.treeId);
     });
   },
@@ -340,7 +396,7 @@ var Tree = {
   //
   mixPlugins: function mixPlugins(plugins) {
     var MixedTree = {
-      name: 'Tree',
+      name: "Tree",
       "extends": Tree,
       mixins: plugins,
       mixPlugins: this.mixPlugins
@@ -359,7 +415,7 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
   } // Vue.extend constructor export interop.
 
 
-  var options = typeof script === 'function' ? script.options : script; // render functions
+  const options = typeof script === 'function' ? script.options : script; // render functions
 
   if (template && template.render) {
     options.render = template.render;
@@ -376,11 +432,11 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
     options._scopeId = scopeId;
   }
 
-  var hook;
+  let hook;
 
   if (moduleIdentifier) {
     // server build
-    hook = function hook(context) {
+    hook = function (context) {
       // 2.3 injection
       context = context || // cached call
       this.$vnode && this.$vnode.ssrContext || // stateful
@@ -416,7 +472,7 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
   if (hook) {
     if (options.functional) {
       // register for functional component in vue file
-      var originalRender = options.render;
+      const originalRender = options.render;
 
       options.render = function renderWithStyleInjection(h, context) {
         hook.call(context);
@@ -424,7 +480,7 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
       };
     } else {
       // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
+      const existing = options.beforeCreate;
       options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
     }
   }
@@ -432,20 +488,76 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
   return script;
 }
 
+const isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+
+function createInjector(context) {
+  return (id, style) => addStyle(id, style);
+}
+
+let HEAD;
+const styles = {};
+
+function addStyle(id, css) {
+  const group = isOldIE ? css.media || 'default' : id;
+  const style = styles[group] || (styles[group] = {
+    ids: new Set(),
+    styles: []
+  });
+
+  if (!style.ids.has(id)) {
+    style.ids.add(id);
+    let code = css.source;
+
+    if (css.map) {
+      // https://developer.chrome.com/devtools/docs/javascript-debugging
+      // this makes source maps inside style tags work properly in Chrome
+      code += '\n/*# sourceURL=' + css.map.sources[0] + ' */'; // http://stackoverflow.com/a/26603875
+
+      code += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) + ' */';
+    }
+
+    if (!style.element) {
+      style.element = document.createElement('style');
+      style.element.type = 'text/css';
+      if (css.media) style.element.setAttribute('media', css.media);
+
+      if (HEAD === undefined) {
+        HEAD = document.head || document.getElementsByTagName('head')[0];
+      }
+
+      HEAD.appendChild(style.element);
+    }
+
+    if ('styleSheet' in style.element) {
+      style.styles.push(code);
+      style.element.styleSheet.cssText = style.styles.filter(Boolean).join('\n');
+    } else {
+      const index = style.ids.size - 1;
+      const textNode = document.createTextNode(code);
+      const nodes = style.element.childNodes;
+      if (nodes[index]) style.element.removeChild(nodes[index]);
+      if (nodes.length) style.element.insertBefore(textNode, nodes[index]);else style.element.appendChild(textNode);
+    }
+  }
+}
+
 /* script */
 const __vue_script__ = Tree;
+
 /* template */
 
   /* style */
-  const __vue_inject_styles__ = undefined;
+  const __vue_inject_styles__ = function (inject) {
+    if (!inject) return
+    inject("data-v-c7ddb21c_0", { source: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", map: {"version":3,"sources":[],"names":[],"mappings":"","file":"Tree.vue"}, media: undefined });
+
+  };
   /* scoped */
   const __vue_scope_id__ = undefined;
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */
   const __vue_is_functional_template__ = undefined;
-  /* style inject */
-  
   /* style inject SSR */
   
   /* style inject shadow dom */
@@ -460,19 +572,19 @@ const __vue_script__ = Tree;
     __vue_is_functional_template__,
     __vue_module_identifier__,
     false,
-    undefined,
+    createInjector,
     undefined,
     undefined
   );
 
 function foldAll(treeData) {
   walkTreeData(treeData, function (childNode) {
-    Vue__default['default'].set(childNode, '$folded', true);
+    Vue.set(childNode, '$folded', true);
   });
 }
 function unfoldAll(treeData) {
   walkTreeData(treeData, function (childNode) {
-    Vue__default['default'].set(childNode, '$folded', false);
+    Vue.set(childNode, '$folded', false);
   });
 }
 var fold = {
@@ -538,63 +650,6 @@ var fold = {
   }
 };
 
-function _createForOfIteratorHelper(o, allowArrayLike) {
-  var it;
-
-  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-      if (it) o = it;
-      var i = 0;
-
-      var F = function F() {};
-
-      return {
-        s: F,
-        n: function n() {
-          if (i >= o.length) return {
-            done: true
-          };
-          return {
-            done: false,
-            value: o[i++]
-          };
-        },
-        e: function e(_e) {
-          throw _e;
-        },
-        f: F
-      };
-    }
-
-    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-  }
-
-  var normalCompletion = true,
-      didErr = false,
-      err;
-  return {
-    s: function s() {
-      it = o[Symbol.iterator]();
-    },
-    n: function n() {
-      var step = it.next();
-      normalCompletion = step.done;
-      return step;
-    },
-    e: function e(_e2) {
-      didErr = true;
-      err = _e2;
-    },
-    f: function f() {
-      try {
-        if (!normalCompletion && it["return"] != null) it["return"]();
-      } finally {
-        if (didErr) throw err;
-      }
-    }
-  };
-}
-
 var check = {
   props: {},
   methods: {
@@ -643,42 +698,6 @@ var check = {
     }
   }
 };
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
 
 function doDraggableDecision (_ref) {
   var conditions = _ref.conditions,
@@ -839,7 +858,7 @@ function makeTreeDraggable(treeEl) {
     treeEl: treeEl
   });
 
-  var _draggableHelper = draggableHelper__default['default'](treeEl, {
+  var _draggableHelper = draggableHelper(treeEl, {
     triggerClassName: options.triggerClass,
     triggerBySelf: options.triggerBySelf,
     draggingClassName: options.draggingClass,
@@ -875,7 +894,7 @@ function makeTreeDraggable(treeEl) {
         // set indent of placeholder
         var placeholderPath = options.getPathByBranchEl(store.placeholder);
         var placeholderNodeBack = store.placeholder.querySelector(".".concat(options.nodeBackClass));
-        placeholderNodeBack.style[!options.rtl ? 'paddingLeft' : 'paddingRight'] = (placeholderPath.length - 1) * options.indent + 'px'; // remove tempChildren if empty
+        placeholderNodeBack.style[!options.rtl ? "paddingLeft" : "paddingRight"] = (placeholderPath.length - 1) * options.indent + "px"; // remove tempChildren if empty
 
         if (store.tempChildren.children.length === 0) {
           hp.removeEl(store.tempChildren);
@@ -892,7 +911,7 @@ function makeTreeDraggable(treeEl) {
         store.placeholder = placeholder;
         options.afterPlaceholderCreated(store); // create a tree children el to use when can't get childrenEl
 
-        var tempChildren = document.createElement('DIV');
+        var tempChildren = document.createElement("DIV");
         hp.addClass(tempChildren, options.childrenClass);
         store.tempChildren = tempChildren; // update placeholder indent. update moved element style
 
@@ -919,7 +938,7 @@ function makeTreeDraggable(treeEl) {
       var movingNodeOf = hp.getOffset(movingNode);
       var movingNodeRect = hp.getBoundingClientRect(movingNode);
 
-      if (options.draggingNodePositionMode === 'mouse') {
+      if (options.draggingNodePositionMode === "mouse") {
         // use mouse position as dragging node position
         var moveEvent = store.moveEvent;
         movingNodeOf = {
@@ -1082,7 +1101,7 @@ function makeTreeDraggable(treeEl) {
             return;
           }
 
-          if (conditions['closest has next']) {
+          if (conditions["closest has next"]) {
             return;
           } // find placeholder prev or parent
 
@@ -1154,41 +1173,41 @@ function makeTreeDraggable(treeEl) {
       // life cycle: one move
 
       var conditions = {
-        'no closest': function noClosest() {
+        "no closest": function noClosest() {
           return !info.closestNode;
         },
-        'closest is top': function closestIsTop() {
+        "closest is top": function closestIsTop() {
           return info.closestBranch === hp.findNodeList(info.root.children, function (el) {
             return el !== movingEl && !isElementHidden(el);
           });
         },
-        'closest is top excluding placeholder': function closestIsTopExcludingPlaceholder() {
+        "closest is top excluding placeholder": function closestIsTopExcludingPlaceholder() {
           return info.closestBranch === hp.findNodeList(info.root.children, function (el) {
             return el !== movingEl && el !== store.placeholder && !isElementHidden(el);
           });
         },
-        'on closest middle': function onClosestMiddle() {
+        "on closest middle": function onClosestMiddle() {
           return movingNodeOf.y < info.closestNodeOffset.y + info.closestNode.offsetHeight / 2;
         },
-        'at closest indent right': function atClosestIndentRight() {
+        "at closest indent right": function atClosestIndentRight() {
           return movingNodeOf.x > info.closestNodeOffset.x + options.indent;
         },
-        'at closest left': function atClosestLeft() {
+        "at closest left": function atClosestLeft() {
           return movingNodeOf.x < info.closestNodeOffset.x;
         },
-        'closest is placeholder': function closestIsPlaceholder() {
+        "closest is placeholder": function closestIsPlaceholder() {
           return info.closestBranch === store.placeholder;
         },
-        'no aboveBranch': function noAboveBranch() {
+        "no aboveBranch": function noAboveBranch() {
           return !info.aboveBranch;
         },
-        'closest has next': function closestHasNext() {
+        "closest has next": function closestHasNext() {
           return info.closestNext;
         },
-        'closest has prev': function closestHasPrev() {
+        "closest has prev": function closestHasPrev() {
           return info.closestPrev;
         },
-        'closest has children excluding placeholder movingEl': function closestHasChildrenExcludingPlaceholderMovingEl() {
+        "closest has children excluding placeholder movingEl": function closestHasChildrenExcludingPlaceholderMovingEl() {
           var childrenEl = info.closestBranch.querySelector(".".concat(options.childrenClass));
 
           if (childrenEl) {
@@ -1201,11 +1220,11 @@ function makeTreeDraggable(treeEl) {
 
       if (options.rtl) {
         Object.assign(conditions, {
-          'at closest indent right': function atClosestIndentRight() {
+          "at closest indent right": function atClosestIndentRight() {
             return movingNodeOf.x < info.closestNodeOffset.x + info.closestNode.offsetWidth - options.indent;
           },
           // at indent left
-          'at closest left': function atClosestLeft() {
+          "at closest left": function atClosestLeft() {
             return movingNodeOf.x > info.closestNodeOffset.x + info.closestNode.offsetWidth;
           } // at right
 
@@ -1266,7 +1285,7 @@ function makeTreeDraggable(treeEl) {
       };
 
       var actions = {
-        'nothing': function nothing() {
+        nothing: function nothing() {
           return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
               while (1) {
@@ -1280,7 +1299,7 @@ function makeTreeDraggable(treeEl) {
           }))();
         },
         // do nothing
-        'append to root': function appendToRoot() {
+        "append to root": function appendToRoot() {
           return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
@@ -1299,7 +1318,7 @@ function makeTreeDraggable(treeEl) {
             }, _callee3);
           }))();
         },
-        'insert before': function insertBefore() {
+        "insert before": function insertBefore() {
           return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
             return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
@@ -1325,7 +1344,7 @@ function makeTreeDraggable(treeEl) {
             }, _callee4);
           }))();
         },
-        'insert after': function insertAfter() {
+        "insert after": function insertAfter() {
           var _arguments = arguments;
           return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
             var branch, moved, isFirstTriedAction;
@@ -1386,7 +1405,7 @@ function makeTreeDraggable(treeEl) {
                       break;
                     }
 
-                    return _context6.abrupt("return", doAction('insert after', info.closestBranch));
+                    return _context6.abrupt("return", doAction("insert after", info.closestBranch));
 
                   case 6:
                     if (!options.isNodeDroppable(info.closestBranch, store.targetTreeEl)) {
@@ -1412,7 +1431,7 @@ function makeTreeDraggable(treeEl) {
             }, _callee6);
           }))();
         },
-        'after above': function afterAbove() {
+        "after above": function afterAbove() {
           return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
             return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
@@ -1438,7 +1457,7 @@ function makeTreeDraggable(treeEl) {
             }, _callee7);
           }))();
         },
-        'append to prev': function appendToPrev() {
+        "append to prev": function appendToPrev() {
           return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
             var childrenEl;
             return regeneratorRuntime.wrap(function _callee8$(_context8) {
@@ -1458,7 +1477,7 @@ function makeTreeDraggable(treeEl) {
                       break;
                     }
 
-                    return _context8.abrupt("return", doAction('insert after', info.closestPrev));
+                    return _context8.abrupt("return", doAction("insert after", info.closestPrev));
 
                   case 6:
                     if (!options.isNodeDroppable(info.closestPrev, store.targetTreeEl)) {
@@ -1691,12 +1710,12 @@ function makeTreeDraggable(treeEl) {
                   // targetTreeEl不存在意味着没有有效移动.
                   // create mask tree
                   maskTree = targetTreeEl.cloneNode(true);
-                  targetTreeEl.style.display = 'none';
+                  targetTreeEl.style.display = "none";
                   hp.insertAfter(maskTree, targetTreeEl);
 
                   if (startTreeEl !== targetTreeEl) {
                     maskTree2 = startTreeEl.cloneNode(true);
-                    startTreeEl.style.display = 'none';
+                    startTreeEl.style.display = "none";
                     hp.insertAfter(maskTree2, startTreeEl);
                   } //
 
@@ -1737,11 +1756,11 @@ function makeTreeDraggable(treeEl) {
 
               case 13:
                 hp.removeEl(maskTree);
-                targetTreeEl.style.display = 'block';
+                targetTreeEl.style.display = "block";
 
                 if (maskTree2) {
                   hp.removeEl(maskTree2);
-                  startTreeEl.style.display = 'block';
+                  startTreeEl.style.display = "block";
                 }
 
               case 16:
@@ -1775,7 +1794,7 @@ function makeTreeDraggable(treeEl) {
       }
 
       if (hp.hasClass(el, options.rootClass)) {
-        return 'break';
+        return "break";
       }
     });
   }
@@ -2306,18 +2325,21 @@ var script = {
 
 /* script */
 const __vue_script__$1 = script;
+
 /* template */
 
   /* style */
-  const __vue_inject_styles__$1 = undefined;
+  const __vue_inject_styles__$1 = function (inject) {
+    if (!inject) return
+    inject("data-v-0a7e7054_0", { source: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", map: {"version":3,"sources":[],"names":[],"mappings":"","file":"Draggable.vue"}, media: undefined });
+
+  };
   /* scoped */
   const __vue_scope_id__$1 = undefined;
   /* module identifier */
   const __vue_module_identifier__$1 = undefined;
   /* functional template */
   const __vue_is_functional_template__$1 = undefined;
-  /* style inject */
-  
   /* style inject SSR */
   
   /* style inject shadow dom */
@@ -2332,7 +2354,7 @@ const __vue_script__$1 = script;
     __vue_is_functional_template__$1,
     __vue_module_identifier__$1,
     false,
-    undefined,
+    createInjector,
     undefined,
     undefined
   );
