@@ -10,9 +10,6 @@
     "types",
     "src"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "unpkg": "dist/he-tree-vue.js",
   "author": "phphe <phphe@outlook.com> (https://github.com/phphe)",
   "contributors": [
