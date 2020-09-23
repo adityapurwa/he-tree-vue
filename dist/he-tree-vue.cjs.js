@@ -1001,7 +1001,6 @@ function makeTreeDraggable(treeEl) {
         return;
       }
 
-      q;
       store.targetTreeEl = _tree; // info ========================================
       // life cycle: one move
 
