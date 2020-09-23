@@ -161,7 +161,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
       // check if target tree right
       if (options.filterTargetTree(tree, store, dhOptions) === false) {
         return;
-      }
+      }q
       store.targetTreeEl = tree;
       // info ========================================
       // life cycle: one move
