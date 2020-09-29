@@ -28,6 +28,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
     // edgeScrollTriggerMargin: 50,
     // edgeScrollSpeed: 0.35,
     // edgeScrollTriggerMode: 'top_left_corner',
+    // minDisplacement: 20,
     // rtl: false
     // preventTextSelection: boolean
     // allowOutOfBounds: false
@@ -43,6 +44,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
     edgeScrollTriggerMargin: options.edgeScrollTriggerMargin,
     edgeScrollSpeed: options.edgeScrollSpeed,
     edgeScrollTriggerMode: options.edgeScrollTriggerMode,
+    minDisplacement: options.minDisplacement,
     rtl: options.rtl,
     preventTextSelection: options.preventTextSelection,
     updateMovedElementStyleManually: true,
