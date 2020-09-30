@@ -32,6 +32,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
     // rtl: false
     // preventTextSelection: boolean
     // allowOutOfBounds: false
+    // opacity: 0.8
     ...options,
     treeEl,
   };
@@ -46,6 +47,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
     edgeScrollTriggerMode: options.edgeScrollTriggerMode,
     minDisplacement: options.minDisplacement,
     rtl: options.rtl,
+    opacity: options.opacity,
     preventTextSelection: options.preventTextSelection,
     updateMovedElementStyleManually: true,
     allowOutOfBounds: options.allowOutOfBounds,
@@ -647,6 +649,7 @@ export default function makeTreeDraggable(treeEl, options = {}) {
       edgeScrollTriggerMargin: options.edgeScrollTriggerMargin,
       edgeScrollSpeed: options.edgeScrollSpeed,
       edgeScrollTriggerMode: options.edgeScrollTriggerMode,
+      opacity: options.opacity,
       //
       rtl: options.rtl,
       preventTextSelection: options.preventTextSelection,

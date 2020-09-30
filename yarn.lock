@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adityapurwa/draggable-helper@^5.0.4":
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/@adityapurwa/draggable-helper/-/draggable-helper-5.0.6.tgz#8235a722d64d4c695beb07e217cecdf9a5d718eb"
-  integrity sha512-CZSXmgVBPVKFMxfc6w6YUX3ouzDEp5eB5N/mGijP6NndHlRbmhnsvohxs00+hitJLWodtjI96cQ4yW4wRfSlqw==
+"@adityapurwa/draggable-helper@5.0.8":
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@adityapurwa/draggable-helper/-/draggable-helper-5.0.8.tgz#6a9de0a22bdec56160b66638062a201a0b109199"
+  integrity sha512-9aJQSTCbBianlz8kbTNweBI8fmcQxowaVH2FaaeZgqmjGZ460qpz0NGopZpLM+OMUqdznW0BrXKFO3GqS5D+6Q==
   dependencies:
     "@babel/runtime" "^7.7.7"
     drag-event-service "^1.1.7"

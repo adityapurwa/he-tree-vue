@@ -26,7 +26,8 @@ export default {
     preventTextSelection: {type: Boolean, default: true},
     cloneWhenDrag: { type: Boolean, default: false },
     cloneWhenDrop: { type: Boolean, default: false},
-    allowOutOfBounds: { type: Boolean, default: false }
+    allowOutOfBounds: { type: Boolean, default: false },
+    opacity: { type: Number, default: 0.8 }
   },
   // components: {},
   data() {
@@ -155,6 +156,7 @@ export default {
       placeholderNodeClass: 'tree-placeholder-node',
       draggingClass: 'dragging',
       placeholderId: `he_tree_drag_placeholder`,
+      opacity: this.opacity,
       ifNodeFolded: (branchEl, store) => {
         const {targetTree} = store
         const node = targetTree.getNodeByBranchEl(branchEl)
